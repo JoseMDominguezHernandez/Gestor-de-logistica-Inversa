@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylecss/styles.css">
+    <title>quality</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id='encabezado'>
+            <div>
+                <img id="logo" src="../images/logo2.png" alt="logo">
+            </div>
+            <div id='nombreapp'>
+                <h1>Gestor de devoluciones</h1>
+            </div>
+            <div id="clock">
+                <div id="digitalclock"> </div>
+                <div id="date"></div>
+                <script src="../src/clock.js"></script>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+         <script type="text/javascript" src="../src/menunav.js"></script>
+    </nav>
+
+    <main>
+        <aside>
+            <div>
+
+                <h2 id="titulopagina">GESTIÓN</h2>
+                <h2 id="titulopagina">DE CALIDAD</h2>
+                <h3 class="h3aside">Controles</h3>
+                <input type="text" id="contador-devolucionesreturns" style="border: 0px;" onlyread>
+                <h4 class="h4aside">Devoluciones en espera de control de calidad</h4>
+            </div>
+            <div id="popup">
+                <button id="open" class="boton">
+                    Gestionar
+                </button>
+                <div id="modal_container" class="modal-container">
+                    <div class="modal">
+                        <div id="cabeceramodal">
+                            <h3>Gestión de controles</h3>
+                        </div>
+                        <div>
+                            <select title="select-controlespend" id="controles-pendientes" required></select>
+                        </div>
+                        <div>
+                            <button id="close" class="boton2">Aceptar</button>
+                            <button id="cancelwindow" class="boton2" onclick="cancelmodal()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <script src="../src/quality.js"></script>
+                <script src="../src/countercontrols.js"></script>
+                <!-- contar pedidos en espera de entrar en departamento -->
+            </div>
+        </aside>
+
+        <section>
+            <form>
+                <!-- FORMULARIO -->
+                <div class="contenedor-formulario" id="cont1">
+                    <div id="titulo-formulario">
+                        <h3>Gestión de controles</h3>
+                    </div>
+
+                    <!-- LOCKER INICIAL-->
+                    <div class="cajaformulario-locker-returns">
+                        <div id="locker-returns">
+                            <h4 class="titulo-campo">Casillero</h4>
+                            <input type="text" id="locker-in-quality" readonly required />
+                        </div>
+                        <div id="vacio-locker-returns">
+                            <h4 class="titulo-campo">Nombre campo</h4>
+                            <input type="text" id="id-inputLocker2" placeholder="placeholder" readonly required />
+                        </div>
+                    </div>
+
+                    <!-- CC + Nº RECOGIDA-->
+                    <h4 class="titulo-campo" style="margin-top: 40px;">Datos cliente</h4>
+                    <div class="cajaformulario-returns">
+
+                        <div id="codigocliente-returns">
+                            <!-- <h4 class="titulo-campo">Código cliente</h4> -->
+                            <input type="text" id="codigoclientereturns" placeholder="Código cliente" readonly
+                                required />
+                        </div>
+                        <div id="numero-recepcion-returns">
+                            <!-- <h4 class="titulo-campo">Nº Recepción</h4> -->
+                            <input type="text" id="numerorecepcio-quality" placeholder="Nº Recepción" readonly
+                                required />
+                        </div>
+                    </div>
+
+                    <!-- NOMBRE + TLF-->
+                    <div class="cajaformulario-returns">
+
+                        <div id="nombre-cliente-returns">
+                            <!-- <h4 class="titulo-campo">Nombre</h4> -->
+                            <input type="text" id="nombrecliente-quality" placeholder="Nombre cliente" readonly
+                                required />
+                        </div>
+                        <div id="numero-telefono-returns">
+                            <!--  <h4 class="titulo-campo">Teléfono</h4> -->
+                            <input type="text" id="telefono1-quality" placeholder="Teléfono" readonly required />
+                        </div>
+                    </div>
+
+                    <!-- PEDIDO ASOCIADO -->
+                    <div class="cajaformulario-titulo-returns">
+                        <div id="pedido-asociado-returns">
+                            <h4 class="titulo-campo">Pedido asociado</h4>
+                            <input type="text" id="pedidoasociado-quality" placeholder="Pedido asociado" readonly
+                                required />
+                        </div>
+                        <div id="vacia2-returns">
+                        </div>
+                    </div>
+
+                    <!--  REFERERENCIA ITEM  -->
+                    <div class="cajaformulario-returns" style="margin-top: 12px;">
+                        <div id="item-quality">
+                            <!-- <h4 class="titulo-campo">Referencia</h4> -->
+                            <input type="text" id="detalle-pedido-quality" required readonly placeholder="Item">
+                        </div>
+
+                        <!-- CANTIDAD ITEMS-->
+                        <div id="cantidad-quality">
+                            <!--  <h4 class="titulo-campo">Cantidad</h4> -->
+                            <input type="text" id="cantidadquality" placeholder="Cantidad" readonly required>
+                        </div>
+                    </div>
+
+                    <!-- DESCRIPCION ITEMS -->
+                    <div class="cajaformulario-rellenar-returns">
+                        <div id="descripcion-item-returns">
+                            <input type="text" id="descripctionItem-quality" readonly required>
+                        </div>
+                    </div>
+
+                    <!-- COMENTARIOS CLIENTE-->
+                    <div class="cajaformulario-textarea2-returns">
+                        <h4 class="titulo-campo">Comentarios / Observaciones del cliente
+                        </h4>
+                        <textarea type="text" id="comentarios-cliente-quality"
+                            placeholder="Comentarios sobre la devolución" readonly></textarea>
+                    </div>
+
+
+                    <!-- CONTENEDOR DATOS OCULTOS -->
+                    <div class="cajaformulario-datos">
+                        <div id="div1">
+                            <input  type="text" id="quality-id" readonly required />
+                        </div>
+                        <div id="div2">
+                            <input  type="text" id="locker-id" readonly required />
+                        </div>
+                        <div id="div3">
+                            <input type="text" id="item-id-quality" readonly required />
+                        </div>
+                        <div id="div4">
+                            <input  type="text" id="iduser3" readonly required />
+                        </div>
+                        <div id="div5">
+                            <input  type="text" id="pack-type" readonly required />
+                        </div>
+                        <div id="div6">
+                            <input type="text" id="nextlocker-q" readonly required />
+                        </div>
+                        <div id="div7">
+                            <input type="text" id="cant-q" readonly required />
+                        </div>
+                        
+
+                    </div>
+                </div>
+        </section>
+
+        <!-- SECTION2 -->
+        <section>
+            <div class="contenedor-formulario" id="cont2">
+                <!-- NEXT LOCKER -->
+                <div class="cajaformulario-locker-quality">
+                    <div id="vacio-locker-quality">
+                        <h4 class="titulo-campo">Nombre campo</h4>
+                        <input type="text" id="id-inputLocker3" placeholder="placeholder" readonly required />
+                    </div>
+                    <div id="locker-quality">
+                        <h4 class="titulo-campo">Nuevo casillero</h4>
+                        <input type="text" id="nextlocker-quality" readonly required />
+                    </div>
+                </div>
+
+                <!-- COMENTARIOS TECNICOS-->
+                <div class="cajaformulario-rellenar-quality">
+                    <div id="comentariostecnico-quality">
+                        <h4 class="titulo-campo" >Ánalisis preliminar</h4>
+                        <input id="comentarios-tecnico-quality2" placeholder="Análisis preliminar" readonly required />
+                    </div>
+                </div>
+
+                <!-- ANALISIS TECNICO -->
+                <div class="cajaformulario-textarea2-quality">
+                    <h4 class="titulo-campo" style="margin-bottom: 5px;">Análisis técnico</h4>
+                    <textarea type="text" id="analisis-tecnico-quality" placeholder="Análisis técnico"></textarea>
+                </div>
+
+                <!-- COMENTARIOS TECNICOS-->
+                <div class="cajaformulario-rellenar-quality" style="margin-top: -36px;">
+                    <div id="comentariostecnico-quality">
+                        <h4 class="titulo-campo" style="margin-bottom: 5px;">Resolución</h4>
+                        <select title="select-motivos" id="comentarios-tecnico-quality" required></select>
+                    </div>
+                </div>
+
+                <!-- PROCEDE -->
+                <div class="cajaformulario-rellenar-titulo-quality" style="margin-top: 20px;">
+                    <div id="procede-quality">
+                        <h4 class="titulo-campo" style="margin-bottom: 5px;">Procede</h4>
+                        <select title="select-cantidadabono" id="procedequality" required></select>
+                    </div>
+
+                   
+                    <div id="destino-quality">
+                        <h4 class="titulo-campo" style="margin-bottom: 5px;">Destino</h4>
+                        <select title="select-cantidadabono" id="dest-quality" required></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTONERA -->
+            <div>
+                <div id="botonera-quality">
+                    <button id="btcancel" class="boton" onclick="cancel()">
+                        Cancelar
+                    </button>
+                    <button class="boton" id="btsend2" onclick="confirmarControl()">
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        </form>
+        </section>
+    </main>
+
+    <footer>
+        <script type="text/javascript" src="../src/footer.js"></script>
+    </footer>
+
+</body>
+
+</html>

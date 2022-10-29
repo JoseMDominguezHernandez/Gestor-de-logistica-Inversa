@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylecss/styles.css">
+    <title>deliverynote</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id='encabezado'>
+            <div>
+                <img id="logo" src="../images/logo2.png" alt="logo">
+            </div>
+            <div id='nombreapp'>
+                <h1>Gestor de devoluciones</h1>
+            </div>
+            <div id="clock">
+                <div id="digitalclock"> </div>
+                <div id="date"></div>
+                <script src="../src/clock.js"></script>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <script type="text/javascript" src="../src/menunav.js"></script>
+    </nav>
+
+    <main>
+        <aside>
+            <div>
+                <h2 id="titulopagina">AREA DE DISTRIBUCIÓN</h2>
+                <h2 id="titulopagina">EXPEDICIONES</h2>
+                <h3 class="h3aside">Generar albarán</h3>
+                <input type="text" id="contador-expediciones" style="border: 0px;" onlyread>
+                <h4 class="h4aside">Devoluciones en espera de generar albarán de envío</h4>
+            </div>
+            <div id="popup">
+                <button id="open" class="boton">
+                    Generar BL
+                </button>
+                <div id="modal_container" class="modal-container">
+                    <div class="modal">
+                        <div id="cabeceramodal">
+                            <h3>Generar albarán de entrega</h3>
+                        </div>
+                        <div>
+                            <select title="select-controlespend" id="envios-pendientes" required></select>
+                        </div>
+                        <div>
+                            <button id="close" class="boton2">Aceptar</button>
+                            <button id="cancelwindow" class="boton2" onclick="cancelmodal()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <script src="../src/deliverynote.js"></script>
+                <script src="../src/counterexp.js"></script>
+            </div>
+        </aside>
+
+        <section>
+            <form>
+                <!-- FORMULARIO -->
+                <div class="contenedor-formulario" id="cont1">
+                    <div id="titulo-formulario">
+                        <h3>Generar albarán de entrega</h3>
+                    </div>
+
+                    <!-- LOCKER INICIAL-->
+                    <div class="cajaformulario-locker-returns">
+                        <div id="locker-exp">
+                            <h4 class="titulo-campo">Casillero</h4>
+                            <input type="text" id="locker-in-exp" readonly required />
+                        </div>
+
+                        <div id="agenciaenvios-exp">
+                            <h4 class="titulo-campo">Agencia</h4>
+                            <select title="id-agencies" id="list-agencias" required></select>
+                        </div>
+
+                    </div>
+
+                    <!-- CC + Nº RECOGIDA-->
+                    <h4 class="titulo-campo" style="margin-top: 30px;">Datos cliente</h4>
+                    <div class="cajaformulario-returns">
+                        <div id="codigocliente-exp">
+                            <input type="text" id="codigoclienteexp" placeholder="CC" readonly required />
+                        </div>
+                        <div id="numero-recepcion-exp">
+                            <input type="text" id="numerorecepcion-exp" placeholder="Nº Recepción" onlyread required />
+                        </div>
+                    </div>
+
+                    <!-- NOMBRE CLIENTE-->
+                    <div class="cajaformulario-returns">
+                        <div id="nombre-cliente-exp">
+                            <input type="text" id="nombrecliente-exp" placeholder="Nombre cliente" required />
+                        </div>
+                    </div>
+
+                    <!-- DIRECCION 1-->
+                    <div class="cajaformulario-returns">
+                        <div id="direccion1-exp">
+                            <input type="text" id="direccion1exp" placeholder="Dirección 1" required />
+                        </div>
+                    </div>
+
+                    <!-- DIRECCION 2-->
+                    <div class="cajaformulario-returns">
+                        <div id="direccion2-exp">
+                            <input type="text" id="direccion2exp" placeholder="Dirección 2"  />
+                        </div>
+                    </div>
+
+                    <!-- CP - POBLACION - PROVINCIA -->
+                    <div class="cajaformulario-returns">
+                        <div id="cp-exp">
+                            <input type="text" id="cpexp" placeholder="CP" required>
+                        </div>
+                        <div id="poblacion-exp">
+                            <input type="text" id="poblacionexp" placeholder="Población" required>
+                        </div>
+                        <div id="prov-exp">
+                            <input type="text" id="provexp" placeholder="Provincia" required>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL-->
+                    <div class="cajaformulario-returns">
+                        <div id="email-exp">
+                            <input type="email" id="emailexp" placeholder="email" />
+                        </div>
+                    </div>
+
+                    <!-- TLF1 + TLF2 -->
+                    <div class="cajaformulario-returns">
+                        <div id="tlf1-exp">
+                            <input type="tel" id="tlf1exp" placeholder="Teléfono1" required>
+                        </div>
+
+                        <div id="tlf2-exp">
+                            <input type="tel" id="tlf2exp" placeholder="Teléfono2">
+                        </div>
+                    </div>
+
+                    <!-- NOMBRE CONTACTO-->
+                    <div class="cajaformulario-returns">
+                        <div id="nombrecontacto-exp">
+                            <input type="text" id="nombrecontactoexp" placeholder="nombre contacto"  />
+                        </div>
+                    </div>
+
+                    <!-- PESO PAQUETE -->
+                    <div class="cajaformulario-exp" style="margin-top: 15px ;">
+                        <div id="peso-exp2">
+                            <input type="text" id="pesoexp2" placeholder="Oculto" onlyread>
+                        </div>
+                        <div id="peso-exp">
+                            <h4 class="titulo-campo">Peso paquete (Kg.)</h4>
+                            <input type="text" id="pesoexp" placeholder="Kg." required>
+                        </div>
+                    </div>
+
+                    <!-- BOTONERA -->
+                    <div>
+                        <div id="botonera-exp">
+                            <button id="btcancel" class="boton" onclick="cancel()">
+                                Cancelar
+                            </button>
+                            <button class="boton" id="btsend2" onclick="generarAlbaran()">
+                                Generar albarán
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CONTENEDOR DATOS OCULTOS -->
+                    <div class="cajaformulario-datos">
+                        <div id="div1">
+                            <input type="text" id="exp-id" readonly required />
+                        </div>
+                        <div id="div2">
+                            <input type="text" id="locker-id" readonly required />
+                        </div>
+                        <div id="div3">
+                            <input type="text" id="iduser3" readonly required />
+                        </div>
+                        <div id="div4">
+                            <input type="text" id="num_recep" readonly required />
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+        <!--  -->
+
+
+        </form>
+        <!--      </section> -->
+    </main>
+
+    <footer>
+        <script type="text/javascript" src="../src/footer.js"></script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1431 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* border: solid 1px black; */
+}
+
+body {
+  padding: 10px;
+  margin: 5px;
+  min-width: 50%;
+  background-color: #0b0213;
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  font-style: italic;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+}
+
+#encabezado {
+  min-width: 600px;
+  text-align: left;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+  font-weight: 700;
+  flex: 2.5;
+  /* border: solid 1px black; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+#nombreapp {
+  flex: 1.5;
+  align-items: center;
+  min-width: 400px;
+  margin-left: 25px;
+  vertical-align: text-bottom;
+}
+
+#nombreformulario {
+  flex: 0.7;
+  float: left;
+  text-align: center;
+  min-width: 200px;
+}
+
+#logo {
+  width: 180px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#clock {
+  flex: 0.5;
+  min-width: 150px;
+  margin-bottom: 5px;
+  /*  border: solid 1px black; */
+}
+
+h1 {
+  /* color: lightseagreen; */
+  color: #afcb05;
+  font-size: 70px;
+  margin-left: 15px;
+  /* border: solid 1px black; */
+}
+
+h2 {
+  color: lightseagreen;
+  font-weight: 700;
+  font-size: 30px;
+  /* margin-bottom: 50px; */
+  /*  text-shadow: 1px 2px rgb(209, 204, 204); */
+  font-style: italic;
+  align-items: flex-end;
+  color: orange;
+}
+
+#digitalclock,
+#date {
+  /* color: lightseagreen; */
+  color: #afcb05;
+  font-size: 35px;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+  text-align: left;
+  font-weight: 700;
+  font-style: italic;
+}
+
+nav {
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 30px; */
+  width: 100%;
+  font-weight: 600;
+  background-color: #afcb05;
+  border-bottom: solid 2px orange;
+  /* border: solid 1px rgb(159, 204, 55); */
+  /* text-shadow: 1px 1px rgb(178, 187, 180) */
+}
+
+#menu {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.navegador {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* box-shadow: 0 2px 10px rgb(172, 172, 172); */
+}
+
+.navegador > li {
+  float: left;
+  flex: 1;
+  /*  border-bottom: solid 2px black; */
+}
+
+.navegador li a,
+.navegador li p {
+  /* padding-left: 50px; */
+  background-color: #afcb05;
+  color: #0b0213;
+  padding: 10px 12px;
+  display: block;
+  text-decoration: none;
+  /* border: solid 1px black; */
+  text-align: left;
+  min-width: 120px;
+}
+
+.navegador li a:hover,
+.navegador li p:hover {
+  background-color: orange;
+  color: brown;
+}
+
+.navegador li ul {
+  display: none;
+  position: absolute;
+  min-width: 170px;
+}
+
+.navegador li:hover > ul {
+  display: block;
+}
+
+.navegador li ul li {
+  position: relative;
+  border: solid 1px white;
+  margin-top: 1px;
+  /* border-bottom: solid 2px white; */
+}
+
+.navegador li ul li ul li {
+  right: -170px;
+  top: -38px;
+  max-width: 250px;
+}
+
+.alingmenu {
+  height: 36px;
+  line-height: 36px;
+}
+
+.submenu {
+  font-size: 14px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+/* -----------------VENTANA MODAL------------------------ */
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+.modal-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal {
+  background-color: beige;
+  width: 400px;
+  max-width: 100%;
+  padding: 0;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border: solid 1px rgb(131, 130, 130);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-weight: 700;
+  display: flexbox;
+  flex-direction: column;
+  color: #0b0213;
+}
+
+#cabeceramodal {
+  background-color: #afcb05;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: solid 2px orange;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+  color: #0b0213;
+  padding-top: 8px;
+  font-size: 16px;
+}
+
+.modal div input,
+.modal div select {
+  width: 260px;
+  font-size: 16px;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  border: solid 1px #afcb05;
+  margin-top: 15px;
+}
+
+#listado-clientes {
+  font-size: 16px;
+  height: 30px;
+  color: lightseagreen;
+  border: solid 1px #afcb05;
+  width: 200px;
+}
+
+/* FORMULARIO PICKING */
+section {
+  margin: 10px;
+  margin-left: 15px;
+  width: 500px;
+  height: 600px;
+  color: lightseagreen;
+  align-items: center;
+}
+
+#botonera {
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btcancel {
+  margin-left: 40px;
+}
+
+#btreset {
+  margin-left: 55px;
+}
+
+#btsend {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#enviar-solicitud {
+  margin-left: 155px;
+}
+
+#observaciones-recogidas {
+  width: 20px;
+}
+
+/* FORMULARIO */
+::placeholder {
+  color: lightgrey;
+}
+
+.contenedor-formulario {
+  /* border: solid 2px red; */
+  width: 500px;
+  min-width: 300px;
+  margin: 5px;
+  margin-top: 25px;
+  padding: 5px;
+  text-align: left;
+  visibility: hidden;
+  /* /////////// */
+}
+
+#titulo-formulario {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.campos-formulario {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 480px;
+  height: 25px;
+  /* color: rgb(150, 150, 150); */
+}
+
+.titulo-campo {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.contenedor-simple {
+  padding: 0;
+  width: 485px;
+  /* border: solid 1px green;  */
+}
+
+.contenedor-doble {
+  margin-top: 0;
+  padding: 0;
+  width: 485px;
+  display: flex;
+
+  /* flex-direction: row; */
+  /* border: solid 2px green;  */
+}
+
+#fecha-recogida {
+  width: 175px;
+  padding-left: 10px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#agencia-transporte {
+  width: 200px;
+  padding-left: 10px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#codigo-cliente,
+#zip-cliente {
+  width: 90px;
+  color: rgb(20, 20, 20);
+  text-align: center;
+  font-weight: 700;
+}
+
+#provincia-cliente,
+#poblacion-cliente {
+  margin-left: 5px;
+  color: rgb(20, 20, 20);
+  width: 145px;
+  padding-left: 10px;
+  text-align: left;
+  font-weight: 700;
+}
+
+#poblacion-cliente {
+  margin-left: 5px;
+  color: rgb(20, 20, 20);
+  width: 200px;
+  padding-left: 10px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.campos-formulario:hover {
+  background-color: rgb(226, 253, 253);
+  color: rgb(178, 32, 122);
+}
+
+#nombre-cliente {
+  margin-left: 5px;
+  color: rgb(20, 20, 20);
+  width: 370px;
+  padding-left: 10px;
+  text-align: left;
+  font-weight: 700;
+}
+
+#tlf1-cliente,
+#etiqueta-pedido {
+  width: 225px;
+  padding-left: 10px;
+  margin: 0;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#horario-recogida {
+  width: 185px;
+  padding-left: 10px;
+  margin: 0;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#urgente {
+  width: 200px;
+  padding-left: 10px;
+  margin: 0;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+#tlf2-cliente {
+  width: 225px;
+  padding-left: 10px;
+  margin-left: 5px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#direccion-cliente,
+#direccion-cliente2,
+#email-cliente {
+  width: 470px;
+  padding-left: 10px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#departamento-destino {
+  width: 270px;
+  padding-left: 10px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#pedido-asociado {
+  width: 180px;
+  padding-left: 10px;
+  color: rgb(20, 20, 20);
+  text-align: left;
+  font-weight: 700;
+}
+
+#cliente {
+  font-weight: 700;
+}
+
+#a01 {
+  float: left;
+  width: 200px;
+}
+
+#a02 {
+  margin-left: 10px;
+  float: left;
+  width: 200px;
+}
+
+#a1 {
+  float: left;
+  width: 200px;
+
+  /* border: solid 1px black; */
+}
+
+#a2 {
+  margin-left: 10px;
+  float: left;
+  width: 200px;
+
+  /* border: solid 1px black; */
+}
+
+#a3 {
+  float: left;
+  width: 150px;
+  margin-top: -15px;
+  /* border: solid 1px black; */
+}
+
+#a4 {
+  margin-left: 50px;
+  float: left;
+  width: 260px;
+  margin-top: -15px;
+  /* border: solid 1px black; */
+}
+
+.placehold {
+  color: rgb(102, 18, 18);
+}
+
+.boton {
+  border-radius: 5px;
+  background-color: #afcb05;
+  margin: 25px auto 25px auto;
+  width: 170px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgb(172, 172, 172);
+  border: solid 1px rgb(131, 130, 130);
+  color: #0b0213;
+  text-decoration: none;
+}
+
+.boton2 {
+  border-radius: 5px;
+  background-color: #afcb05;
+  margin: 30px;
+  margin-bottom: 0px;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  /* box-shadow: 0 2px 10px rgb(172, 172, 172); */
+  border: solid 1px rgb(131, 130, 130);
+  color: #0b0213;
+  text-decoration: none;
+}
+
+.boton:hover {
+  background-color: orange;
+  color: brown;
+}
+
+#codigo-agencia,
+#id-codigo-agencia,
+#num-orden,
+#iduser {
+  height: 30px;
+  width: 60px;
+  margin-top: 20px;
+  margin-left: 10px;
+  visibility: hidden;
+  /* ///// */
+}
+
+input {
+  color: lightseagreen;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 5px;
+  width: 250px;
+  /* border-color: lightseagreen; */
+  border-width: 1px;
+  box-shadow: inset 1px 1px lightgray;
+}
+
+select {
+  border-radius: 5px;
+  font-weight: normal;
+  font-style: italic;
+  text-align: left;
+  color: seagreen;
+  background-color: white;
+  box-shadow: inset 1px 1px lightgray;
+}
+
+option {
+  font-weight: normal;
+  font-style: italic;
+  text-align: left;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 3px;
+  width: auto;
+  border-color: lightseagreen;
+  border-width: 1px;
+}
+
+.separador {
+  border: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* FIN FORMULARIO */
+
+/* aside */
+aside {
+  /*  border: solid 1px black; */
+  width: 400px;
+  height: 650px;
+  margin-left: 10px;
+  padding: 20px;
+  margin-right: 120px;
+  align-items: rigth;
+  display: flexbox;
+  flex-direction: column;
+  background-color: transparent;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: #0b0213;
+}
+
+#contador-devolucionesreturns {
+  margin-right: -30px;
+  width: 150px;
+  height: 100px;
+  color: orange;
+  /* color: lightseagreen; */
+  font-weight: 700;
+  font-size: 70px;
+  text-align: center;
+  font-style: italic;
+  background-color: #0b0213;
+  box-shadow: none;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+}
+
+#contador-pendientes {
+  margin-right: -30px;
+  width: 150px;
+  height: 100px;
+  color: orange;
+  /* color: lightseagreen; */
+  font-weight: 700;
+  font-size: 70px;
+  text-align: center;
+  font-style: italic;
+  background-color: #0b0213;
+  box-shadow: none;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+}
+
+.h3aside {
+  color: lightseagreen;
+  font-weight: 700;
+  font-size: 60px;
+  margin-bottom: 50px;
+  /* text-shadow: 1px 2px rgb(209, 204, 204); */
+  font-style: italic;
+}
+
+.h4aside {
+  color: lightseagreen;
+  font-weight: 700;
+  font-size: 25px;
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+footer{
+    margin:  0px 5px;
+}
+
+footer > div{
+  margin-top: 50px;
+  color: white;
+  width: 100%;
+  font-size: 25px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: right;
+  font-style: italic;
+}
+
+footer > div > div h3 {
+  color: orange;
+}
+
+footer  > div > div> h5 {
+  color: #afcb05;
+  margin-top: 5px;
+}
+
+#footer {
+  flex: 0.9;
+  margin-right: 15px;
+}
+#footer2 {
+  flex: 0.1;
+ 
+}
+
+hr{
+    width: 100%;
+}
+.sorry {
+  margin-top: 90px;
+  height: 900px;
+  width: auto;
+  text-align: center;
+  font-size: 40px;
+  color: orange;
+  margin-bottom: 50px;
+}
+
+.underconstruction {
+  height: 400px;
+}
+
+#contenedor-obras {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  padding: 5px;
+  color: rgb(20, 20, 20);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 16px;
+  resize: none;
+  border-radius: 5px;
+  max-width: 490px;
+  min-width: 490px;
+  max-height: 60px;
+  min-height: 60px;
+  background-color: white;
+  box-shadow: inset 1px 1px lightgray;
+}
+
+#text2 {
+  max-height: 50px;
+  min-height: 50px;
+}
+
+/* INDEX */
+
+#usuario {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#confirmuserpassword,
+#confirmnameuser,
+#confirmuser {
+  width: 60px;
+  height: 30px;
+  visibility: hidden;
+}
+
+#indexmenu {
+  visibility: hidden;
+}
+
+#lineaencabezado {
+  margin-top: 5px;
+  width: 100%;
+  height: 5px;
+  background-color: orange;
+  border-color: brown;
+  visibility: visible;
+}
+
+#fondo {
+  width: 100%;
+  height: auto;
+}
+
+#imagenfondo::after {
+  content: "";
+  background: url("../images/fondo3_.jpg");
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#seccionbienvenida {
+  width: 100%;
+  text-align: left;
+  visibility: hidden;
+}
+
+.bienvenida {
+  width: auto;
+  font-size: 100px;
+  margin-top: 65px;
+  color: rgb(159, 206, 203);
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* FORMULARIO Recepciones */
+/* CAJA DOBLE FORMULARIO */
+.cajaformulario {
+  margin-top: 30px;
+  display: flex;
+  width: 500px;
+  height: 80px;
+  align-items: center;
+  /*   border: solid 1px white; */
+}
+
+.cajaformulario > div {
+  height: 80px;
+}
+
+.cajaformulario > div > input {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#num-recogida,
+#numero-recepcion {
+  flex: 1;
+}
+
+#codigo-cliente,
+#destino-recepcion {
+  flex: 1;
+  margin-left: 15px;
+}
+
+/* Clase TextArea */
+.cajaformulario-textarea {
+  margin-top: 30px;
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  /*   border: solid 1px white; */
+}
+
+#obser {
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.cajaformulario-locker {
+  display: flex;
+  width: 500px;
+  height: 80px;
+  align-items: center;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-locker > div {
+  height: 80px;
+}
+
+.cajaformulario-locker > div > input {
+  width: 100%;
+  height: 60px;
+  color: rgb(20, 20, 20);
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#vacio-recepcion {
+  flex: 1.6;
+}
+
+#locker-returns,
+#locker-recepcion {
+  flex: 0.4;
+}
+
+#btsend2 {
+  margin-left: 80px;
+}
+
+.vacio,
+#id-locker,
+#cod-cli,
+#prox-dep,
+#tipo-emb {
+  flex: 1;
+}
+
+/* ---------FORM RETURNS----------- */
+
+/* CONTENEDOR DATOS OCULTOS RETURNS */
+.cajaformulario-datos {
+  visibility: hidden;
+  /* ///// */
+  margin-top: 30px;
+  display: flex;
+  width: 500px;
+  height: 30px;
+  align-items: center;
+  /*   border: solid 1px white; */
+}
+
+.cajaformulario-datos > div {
+  height: 100%;
+  margin: 0;
+}
+
+.cajaformulario-datos > div > input {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 10px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#id1,
+#id2,
+#id3,
+#id4,
+#id5,
+#id6,
+#id7 .idoculto {
+  flex: 1;
+}
+
+/* --------------------------------------- */
+
+.cajaformulario-returns {
+  /* margin-top: 30px; */
+  display: flex;
+  width: 500px;
+  height: 40px;
+  /* align-items: center; */
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-titulo-returns {
+  /* margin-top: 30px; */
+  display: flex;
+  width: 500px;
+  height: 70px;
+  /*  text-align: center; */
+  /* align-items: center; */
+  /*  border: solid 1px white; */
+}
+
+.cajaformulario-locker-returns {
+  /* margin-top: 30px; */
+  display: flex;
+  width: 500px;
+  height: 105px;
+  /* align-items: center; */
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-textarea-returns {
+  margin-top: 10px;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  /*  border: solid 1px white; */
+}
+
+.cajaformulario-textarea2-returns {
+  margin-top: 10px;
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-textarea3-returns {
+  margin-top: 60px;
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-returns2 {
+  margin-top: 8px;
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-titulo-returns {
+  margin-top: 175px;
+  display: flex;
+  width: 500px;
+  height: 70px;
+  /* align-items: center; */
+  /*  border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-returns {
+  display: flex;
+  width: 500px;
+  height: 40px;
+  margin-top: 5px;
+  /* align-items: center; */
+  /* border: solid 1px white; */
+}
+
+#comentarios-tecnico-returns,
+#comentarios-cliente-returns,
+#detalle-pedido-returns {
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.cajaformulario-rellenar-returns2 > div,
+.cajaformulario-rellenar-titulo-returns > div,
+.cajaformulario-rellenar-returns > div,
+.cajaformulario-titulo-returns > div,
+.cajaformulario-returns > div,
+.cajaformulario-locker-returns > div {
+  height: 100%;
+}
+
+.cajaformulario-titulo-returns > div > input,
+.cajaformulario-returns > div > input,
+.cajaformulario-rellenar-titulo-returns > div > input,
+.cajaformulario-rellenar-titulo-returns > div > select,
+.cajaformulario-rellenar-returns > div > input {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.cajaformulario-rellenar-returns2 > div > select {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+  /* margin-bottom: 15px; */
+}
+
+.cajaformulario-locker-returns > div > select,
+.cajaformulario-locker-returns > div > input {
+  width: 100%;
+  height: 60px;
+  color: rgb(20, 20, 20);
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.cajaformulario-returns > div > h4 {
+  margin: 0px;
+}
+
+/* .cajaformulario-locker-returns > div > h4 {
+  margin-top: 10px;
+} */
+#locker-returns {
+  flex: 0.2;
+  height: 100%;
+}
+
+#vacio-locker-returns {
+  flex: 0.8;
+  height: 100%;
+  visibility: hidden;
+}
+
+#codigocliente-returns {
+  flex: 0.3;
+}
+
+#numero-recepcion-returns {
+  flex: 0.7;
+  margin-left: 15px;
+}
+
+#nombre-cliente-returns {
+  flex: 0.7;
+}
+
+#numero-telefono-returns {
+  flex: 0.3;
+  margin-left: 15px;
+}
+
+#vacia2-returns {
+  flex: 0;
+}
+
+#pedidoasociado-returns {
+  flex: 1;
+}
+
+#item-returns {
+  flex: 0.7;
+}
+
+#cantidad-returns {
+  flex: 0.3;
+  margin-left: 15px;
+}
+
+#descripcion-item-returns {
+  flex: 1;
+}
+
+#detalle-pedido-returns {
+  text-align: center;
+}
+
+#cantidadabono-returns {
+  flex: 0.6;
+}
+
+#mercancia-abonar {
+  flex: 0.4;
+}
+
+#comentariostecnico-returns {
+  flex: 0.6;
+}
+
+#vacio-form-returns {
+  flex: 0.4;
+  height: 100%;
+  margin-left: 15px;
+  visibility: hidden;
+}
+
+#botonera-returns {
+  margin-top: 35px;
+  visibility: hidden;
+  margin-left: 20px;
+  /* border: solid 1px white; */
+}
+
+/* ---------------QUALITY------------------------ */
+
+#botonera-quality {
+  margin-top: 50px;
+  visibility: hidden;
+  margin-left: 20px;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-quality {
+  display: flex;
+  width: 500px;
+  height: 40px;
+  /*   border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-quality > div {
+  height: 100%;
+  margin-top: 20px;
+}
+
+.cajaformulario-rellenar-quality > div > input {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.cajaformulario-rellenar-titulo-quality {
+  margin-top: 8px;
+  display: flex;
+  width: 500px;
+  height: 70px;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-titulo-quality > div {
+  height: 100%;
+}
+
+.cajaformulario-rellenar-titulo-quality > div > input,
+.cajaformulario-rellenar-titulo-quality > div > select {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#item-quality {
+  flex: 0.7;
+}
+
+#cantidad-quality {
+  flex: 0.3;
+  margin-left: 15px;
+}
+
+.cajaformulario-rellenar-quality {
+  margin-top: -9px;
+  width: 100%;
+  height: 75px;
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-rellenar-quality > div {
+  height: 100%;
+}
+
+.cajaformulario-rellenar-quality > div > select {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#comentariostecnico-quality {
+  flex: 1;
+}
+
+.cajaformulario-textarea2-quality {
+  margin-top: 50px;
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  /* border: solid 1px white; */
+}
+
+#comentarios-cliente-quality {
+  width: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#procede-quality {
+  flex: 0.3;
+}
+
+#destino-quality {
+  flex: 0.7;
+  margin-left: 15px;
+}
+
+.cajaformulario-locker-quality {
+  margin-top: 38px;
+  display: flex;
+  width: 500px;
+  height: 125px;
+  /* align-items: center; */
+  /* border: solid 1px white; */
+}
+
+.cajaformulario-locker-quality > div {
+  height: 100%;
+}
+
+.cajaformulario-locker-quality > div > input {
+  width: 100%;
+  height: 60px;
+  color: rgb(20, 20, 20);
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#locker-quality {
+  flex: 0.2;
+  height: 100%;
+}
+
+#vacio-locker-quality {
+  flex: 0.8;
+  height: 100%;
+  visibility: hidden;
+}
+
+/* ------------------EXPEDICIONES------------------------- */
+
+#codigocliente-exp {
+  flex: 0.2;
+}
+
+#numero-recepcion-exp {
+  flex: 0.8;
+  margin-left: 15px;
+}
+
+#direccion2-exp,
+#direccion1-exp,
+#nombre-cliente-exp {
+  flex: 1;
+}
+
+#cp-exp {
+  flex: 0.2;
+}
+#poblacion-exp {
+  flex: 0.4;
+  margin-left: 15px;
+}
+#prov-exp {
+  flex: 0.4;
+  margin-left: 15px;
+}
+#email-exp {
+  flex: 1;
+}
+
+#tlf1-exp {
+  flex: 0.5;
+}
+#tlf2-exp {
+  flex: 0.5;
+  margin-left: 15px;
+}
+#peso-exp2 {
+  flex: 0.7;
+  visibility: hidden;
+}
+#peso-exp {
+  flex: 0.3;
+}
+#nombrecontacto-exp {
+  flex: 1;
+}
+
+.cajaformulario-exp {
+  /* margin-top: 30px; */
+  display: flex;
+  width: 500px;
+  height: 40px;
+  align-items: flex-end;
+  /* border: solid 1px white; */
+}
+.cajaformulario-exp > div {
+  height: 100%;
+  text-align: center;
+}
+
+.cajaformulario-exp > div > h4 {
+  margin: 0px;
+}
+
+.cajaformulario-exp > div > input {
+  width: 100%;
+  height: 30px;
+  color: rgb(20, 20, 20);
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#contador-expediciones {
+  margin-right: -30px;
+  width: 150px;
+  height: 100px;
+  color: orange;
+  font-weight: 700;
+  font-size: 70px;
+  text-align: center;
+  font-style: italic;
+  background-color: #0b0213;
+  box-shadow: none;
+}
+
+#botonera-exp {
+  margin-top: 30px;
+  visibility: hidden;
+}
+
+#locker-exp {
+  flex: 0.3;
+}
+#agenciaenvios-exp {
+  flex: 0.7;
+  margin-left: 200px;
+  /* align-self: flex-end; */
+}
+#list-agencias {
+  /* font-size: unset; */
+  font-size: 16px;
+  color: #0b0213;
+
+  height: 35px;
+  margin-top: 10px;
+  width: 100%;
+}
